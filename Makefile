@@ -19,6 +19,6 @@ clean:
 	rm -f *.o vma
 	
 pack:
-	zip -FSr 315CA_CretuMihneaTudor_Tema1.zip README Makefile *.c *.h
+	zip -FSr 315CA_CretuMihneaTudor_Tema1.zip README.md Makefile *.c *.h
 
 .PHONY: pack clean

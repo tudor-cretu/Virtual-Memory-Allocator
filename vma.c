@@ -387,7 +387,8 @@ void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 			((list_t *)((block_t *)node->next->data)->miniblock_list)->head = NULL;
 
 			// removing the next block and its data from the arena
-			dll_free(((list_t *)&((block_t *)node->next->data)->miniblock_list));
+			list_t* list_to_free = ((block_t *)node->next->data)->miniblock_list;
+			dll_free(&list_to_free);
 			dll_remove_nth_node(arena->alloc_list, position + 1);
 			free(block);
 			free(miniblock);
